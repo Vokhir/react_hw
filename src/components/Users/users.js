@@ -1,25 +1,20 @@
 import {useEffect, useState} from "react";
 import User from "../User/user.js";
-import {getUsers} from "../services/api";
+import {getLaunches} from "../services/api";
 
 export default function Users() {
     let [users, setUsers] = useState([]);
-    let [user, setUser] = useState(null);
-    const lift = (obj)=>{
-        setUser(<div><b>Name:</b> {obj.name} <br/> <b>Email:</b> {obj.email}</div>)
-    }
 
     useEffect(()=> {
-            getUsers().then(value => setUsers(value.data))
+            getLaunches().then(value => setUsers(value.data.filter(function (el) {
+                return el.launch_year<2020
+            })))
         },[]
     );
 
     return (
         <div>
-            <hr/>
-            {user}
-            <hr/>
-            {users.map((user, index) => (<User item={user} key={index} lift={lift}/>))}
+            {users.map((user, index) => (<User item={user} key={index}/>))}
         </div>
     )
 
