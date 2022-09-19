@@ -1,14 +1,14 @@
 import './App.css';
 
-import Characters from './components/characters'
+import Users from './components/Users/users.js'
 
 
 
 function App() {
   return (
       <div>
-        <h1>'Characters'</h1>
-        <Characters/>
+        <h1>Users</h1>
+        <Users/>
       </div>)
       ;
 }
