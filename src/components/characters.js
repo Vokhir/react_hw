@@ -1,6 +1,7 @@
 import {useState} from "react";
 import Character from "./character";
 
+
 export default function Characters() {
     let [characters, setCharacters] = useState([]);
 
